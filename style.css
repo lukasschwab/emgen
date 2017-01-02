@@ -16,7 +16,7 @@ div.main > * {
     text-align: center;
 }
 
-/* HEADING */
+/* INFO */
 h1 {
     font-size: 2em;
 }
@@ -29,6 +29,12 @@ p.description {
     margin-bottom: 30px;
     margin: 0px auto 30px auto;
     line-height: 1.5em;
+}
+a:active {
+    color: #ecf0f1;
+}
+a:visited {
+    color: #7f8c8d;
 }
 
 /* INPUTS */
@@ -44,7 +50,6 @@ input[type=text] {
 input:focus {
     outline: none;
 }
-
 
 /* BUTTON */
 button {
@@ -76,4 +81,23 @@ textarea {
 }
 textarea:focus {
     outline: none;
+}
+
+/* UNDER */
+#configure {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#configDiv {
+    border: 2px solid #7f8c8d;
+    border-radius: 4px;
+    padding: 4px;
+    width: 500px;
+    max-width: 80%;
+    margin: 30px auto 30px auto;
+}
+
+label {
+    white-space: nowrap;
 }

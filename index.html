@@ -16,11 +16,13 @@
       <p><a id="configure">configure</a> &middot; <a href="https://github.com/lukasschwab/emgen">emgen on github</a> &middot; <a href="http://lukasschwab.github.io/blog/">lukas schwab</a></p>
     
         <div id="configDiv" style="display: none;">
-          <p>Domains: 
-            <input type="checkbox" id="gmail" value="gmail" checked>@gmail.com
-            <input type="checkbox" id="yahoo" value="yahoo">@yahoo.com
-            <input type="checkbox" id="hotmail" value="hotmail">@hotmail.com
-            <input type="checkbox" id="outlook" value="outlook">@outlook.com
+          <p>Domains:
+            <label><input type="checkbox" id="gmail" value="gmail" checked>gmail.com</label>
+            <label><input type="checkbox" id="yahoo" value="yahoo">yahoo.com</label>
+            <label><input type="checkbox" id="hotmail" value="hotmail">hotmail.com</label>
+            <label><input type="checkbox" id="outlook" value="outlook">outlook.com</label>
+          </p>
+          <p><label><input type="checkbox" id="autocopy" value="autocopy">Auto-copy to clipboard</label>
           </p>
         </div>
     </div>
@@ -56,6 +58,9 @@
         out.value = out.value.slice(0, -2);
         out.focus();
         out.select();
+        if (document.getElementById("autocopy").checked) {
+          document.execCommand("copy");
+        }
       }
 
       document.getElementById("configure").onclick = function() {
