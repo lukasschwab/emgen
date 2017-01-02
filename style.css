@@ -36,6 +36,9 @@ a:active {
 a:visited {
     color: #7f8c8d;
 }
+a {
+    color: #7f8c8d;
+}
 
 /* INPUTS */
 input[type=text] {
