@@ -16,7 +16,9 @@
     <!-- TODO: add links to main site/github -->
     <script>
       document.getElementById("trigger").onclick = function() {
-        document.getElementById("out").value = "";
+        out = document.getElementById("out");
+
+        out.value = "";
         first = document.getElementById("firstName").value.toLowerCase();
         last = document.getElementById("lastName").value.toLowerCase();
         domain = document.getElementById("customDomain").value.toLowerCase();
@@ -31,18 +33,17 @@
         emails = [];
 
         for (var i = 0; i < domains.length; i++) {
-          document.getElementById("out").value += first + "@" + domains[i] + ", ";
-          document.getElementById("out").value += last + "@" + domains[i] + ", ";
-          document.getElementById("out").value += first + last + "@" + domains[i] + ", ";
-          document.getElementById("out").value += first + "." + last + "@" + domains[i] + ", ";
-          document.getElementById("out").value += last + "." + first + "@" + domains[i] + ", ";
-          document.getElementById("out").value += first + "_" + last + "@" + domains[i] + ", ";
-          document.getElementById("out").value += last + "_" + first + "@" + domains[i] + ", ";
-          document.getElementById("out").value += first[0] + last + "@" + domains[i] + ", ";
-          document.getElementById("out").value += last + first[0] + "@" + domains[i] + ", ";
+          out.value += first + "@" + domains[i] + ", ";
+          out.value += last + "@" + domains[i] + ", ";
+          out.value += first + last + "@" + domains[i] + ", ";
+          out.value += first + "." + last + "@" + domains[i] + ", ";
+          out.value += last + "." + first + "@" + domains[i] + ", ";
+          out.value += first + "_" + last + "@" + domains[i] + ", ";
+          out.value += last + "_" + first + "@" + domains[i] + ", ";
+          out.value += first[0] + last + "@" + domains[i] + ", ";
+          out.value += last + first[0] + "@" + domains[i] + ", ";
           // TODO: add others: firstl, lfirst...
           // TODO: clean up extra comma
-          // TODO: replace document.getElementById with one call
         }
       }
     </script>
