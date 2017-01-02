@@ -1,7 +1,7 @@
 # emgen
 
 <p align="center">
-    A faster email generator.
+    A faster email generator.<br><br>
     <img src="https://lukasschwab.github.io/img/spam.gif">
 </p>
 
