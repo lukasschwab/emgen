@@ -13,7 +13,16 @@
       <p class="inputLine">Domain: <input name="customDomain" type="text" maxlength="512" id="customDomain" class="nameField" placeholder="domain.com"/></p>
       <button type="button" id="trigger">generate</button>
       <p><textarea readonly type="text" maxlength="10000000" id="out" class="outbox" onclick="this.focus();this.select()"></textarea></p>
-      <p><a href="https://github.com/lukasschwab/emgen">emgen on github</a> &middot; <a href="http://lukasschwab.github.io/blog/">lukas schwab</a></p>
+      <p><a id="configure">configure</a> &middot; <a href="https://github.com/lukasschwab/emgen">emgen on github</a> &middot; <a href="http://lukasschwab.github.io/blog/">lukas schwab</a></p>
+    
+        <div id="configDiv" style="display: none;">
+          <p>Domains: 
+            <input type="checkbox" id="gmail" value="gmail" checked>@gmail.com
+            <input type="checkbox" id="yahoo" value="yahoo">@yahoo.com
+            <input type="checkbox" id="hotmail" value="hotmail">@hotmail.com
+            <input type="checkbox" id="outlook" value="outlook">@outlook.com
+          </p>
+        </div>
     </div>
     <script>
       document.getElementById("trigger").onclick = function() {
@@ -29,7 +38,7 @@
         }
 
         // TODO: Make this configurable!
-        domains = [domain, "gmail.com", "yahoo.com", "hotmail.com", "outlook.com"];
+        domains = getDomains();
         emails = [];
 
         for (var i = 0; i < domains.length; i++) {
@@ -47,6 +56,33 @@
         out.value = out.value.slice(0, -2);
         out.focus();
         out.select();
+      }
+
+      document.getElementById("configure").onclick = function() {
+        cdiv = document.getElementById("configDiv");
+        if (cdiv.style.display == "block") {
+          cdiv.style.display = "none";
+        } else {
+          cdiv.style.display = "block";
+        }
+      }
+
+      getDomains = function() {
+        domains = [document.getElementById("customDomain").value.toLowerCase()];
+        // TODO: replace with iteration over list
+        if (document.getElementById("gmail").checked) {
+          domains[domains.length] = "gmail.com";
+        }
+        if (document.getElementById("yahoo").checked) {
+          domains[domains.length] = "yahoo.com";
+        }
+        if (document.getElementById("hotmail").checked) {
+          domains[domains.length] = "hotmail.com";
+        }
+        if (document.getElementById("outlook").checked) {
+          domains[domains.length] = "outlook.com";
+        }
+        return domains;
       }
     </script>
   </body>
