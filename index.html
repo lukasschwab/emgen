@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div class="main">
+      <h1>emgen</h1>
+      <p class="description">Similar to <a href="http://emailgenerator.io/">Email Generator</a>, emgen guesses emails.<br>Use Rapportive or a similar tool to validate an address.</p>
+      <p class="inputLine">First name: <input autofocus name="firstName" type="text" maxlength="512" id="firstName" class="nameField"placeholder="firstname"/></p>
+      <p class="inputLine">Last name: <input name="lastName" type="text" maxlength="512" id="lastName" class="nameField"placeholder="lastname"/></p>
+      <p class="inputLine">Domain: <input name="customDomain" type="text" maxlength="512" id="customDomain" class="nameField" placeholder="domain.com"/></p>
+      <button type="button" id="trigger">generate</button>
+      <p><textarea readonly type="text" maxlength="10000000" id="out" class="outbox" onclick="this.focus();this.select()"></textarea></p>
+    </div>
+    <!-- TODO: add links to main site/github -->
+    <script>
+      document.getElementById("trigger").onclick = function() {
+        document.getElementById("out").value = "";
+        first = document.getElementById("firstName").value.toLowerCase();
+        last = document.getElementById("lastName").value.toLowerCase();
+        domain = document.getElementById("customDomain").value.toLowerCase();
+
+        if (first == "" || last == "" || domain == "") {
+          console.log("Insufficient text entered");
+          return;
+        }
+
+        // TODO: Make this configurable!
+        domains = [domain, "gmail.com", "yahoo.com", "hotmail.com", "outlook.com"];
+        emails = [];
+
+        for (var i = 0; i < domains.length; i++) {
+          document.getElementById("out").value += first + "@" + domains[i] + ", ";
+          document.getElementById("out").value += last + "@" + domains[i] + ", ";
+          document.getElementById("out").value += first + last + "@" + domains[i] + ", ";
+          document.getElementById("out").value += first + "." + last + "@" + domains[i] + ", ";
+          document.getElementById("out").value += last + "." + first + "@" + domains[i] + ", ";
+          document.getElementById("out").value += first + "_" + last + "@" + domains[i] + ", ";
+          document.getElementById("out").value += last + "_" + first + "@" + domains[i] + ", ";
+          document.getElementById("out").value += first[0] + last + "@" + domains[i] + ", ";
+          document.getElementById("out").value += last + first[0] + "@" + domains[i] + ", ";
+          // TODO: add others: firstl, lfirst...
+          // TODO: clean up extra comma
+        }
+      }
+    </script>
+  </body>
+</html>

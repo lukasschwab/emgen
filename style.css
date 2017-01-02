@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+
+/*#7f8c8d*/
+
+body {
+    background-color: #ecf0f1;
+    color: #7f8c8d;
+    font-family: 'Inconsolata', monospace;
+}
+
+div.main {
+    padding-top: 30px;
+}
+
+div.main > * {
+    text-align: center;
+}
+
+/* HEADING */
+h1 {
+    font-size: 2em;
+}
+
+p.description {
+    width: 500px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    margin: 0px auto 30px auto;
+    line-height: 1.5em;
+}
+
+/* INPUTS */
+input[type=text] {
+    margin-left: 5px;
+    border: 2px solid #7f8c8d;
+    border-radius: 4px;
+    padding: 4px;
+    background: #eff0f1;
+    font-family: 'Inconsolata';
+    font-size: 1em;
+}
+input:focus {
+    outline: none;
+}
+
+
+/* BUTTON */
+button {
+    color: #7f8c8d;
+    display: block;
+    margin: 30px auto 30px auto;
+    border: 2px solid #7f8c8d;
+    border-radius: 4px;
+    background: transparent;
+    padding: 10px;
+    font-size: 1.5em;
+    font-family: 'Inconsolata';
+}
+button:focus, button:hover {
+    background-color: #7f8c8d;
+    color: #ecf0f1;
+}
+
+/* OUTPUT */
+textarea {
+    resize: none;
+    border: 2px solid #7f8c8d;
+    border-radius: 4px;
+    padding: 4px;
+    width: 500px;
+    height: 250px;
+    max-width: 80%;
+    background-color: #eff0f1;
+}
+textarea:focus {
+    outline: none;
+}
