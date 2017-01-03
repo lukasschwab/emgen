@@ -10,8 +10,8 @@ body {
 
 div.main {
     padding-top: 30px;
+    margin-bottom: 30px;
 }
-
 div.main > * {
     text-align: center;
 }
