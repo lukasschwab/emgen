@@ -8,6 +8,7 @@
     <div class="main">
       <h1>emgen</h1>
       <p class="description">Similar to <a href="http://emailgenerator.io/">Email Generator</a>, emgen guesses emails.<br>Use Rapportive or a similar tool to validate an address.</p>
+      
       <p class="inputLine">First name: <input autofocus name="firstName" type="text" maxlength="512" id="firstName" class="nameField"placeholder="firstname"/></p>
       <p class="inputLine">Last name: <input name="lastName" type="text" maxlength="512" id="lastName" class="nameField"placeholder="lastname"/></p>
       <p class="inputLine">Domain: <input name="customDomain" type="text" maxlength="512" id="customDomain" class="nameField" placeholder="domain.com"/></p>
@@ -15,16 +16,16 @@
       <p><textarea readonly type="text" maxlength="10000000" id="out" class="outbox" onclick="this.focus();this.select()"></textarea></p>
       <p><a id="configure">configure</a> &middot; <a href="https://github.com/lukasschwab/emgen">emgen on github</a> &middot; <a href="http://lukasschwab.github.io/blog/">lukas schwab</a></p>
     
-        <div id="configDiv" style="display: none;">
-          <p>Domains:
-            <label><input type="checkbox" id="gmail" value="gmail" checked>gmail.com</label>
-            <label><input type="checkbox" id="yahoo" value="yahoo">yahoo.com</label>
-            <label><input type="checkbox" id="hotmail" value="hotmail">hotmail.com</label>
-            <label><input type="checkbox" id="outlook" value="outlook">outlook.com</label>
-          </p>
-          <p><label><input type="checkbox" id="autocopy" value="autocopy">Auto-copy to clipboard</label>
-          </p>
-        </div>
+      <div id="configDiv" style="display: none;">
+        <p>Domains:
+          <label><input type="checkbox" id="gmail" value="gmail" checked>gmail.com</label>
+          <label><input type="checkbox" id="yahoo" value="yahoo">yahoo.com</label>
+          <label><input type="checkbox" id="hotmail" value="hotmail">hotmail.com</label>
+          <label><input type="checkbox" id="outlook" value="outlook">outlook.com</label>
+        </p>
+        <p><label><input type="checkbox" id="autocopy" value="autocopy">Auto-copy to clipboard</label>
+        </p>
+      </div>
     </div>
     <script src="main.js"></script>
   </body>

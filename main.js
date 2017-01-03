@@ -14,6 +14,7 @@ document.getElementById("trigger").onclick = function() {
   domains = getDomains();
   emails = [];
 
+  // Add all emails to box, then remove last ", ".
   for (var i = 0; i < domains.length; i++) {
     out.value += first + "@" + domains[i] + ", ";
     out.value += last + "@" + domains[i] + ", ";
@@ -26,6 +27,7 @@ document.getElementById("trigger").onclick = function() {
     out.value += last + first[0] + "@" + domains[i] + ", ";
   }
   out.value = out.value.slice(0, -2);
+
   out.focus();
   out.select();
   if (document.getElementById("autocopy").checked) {

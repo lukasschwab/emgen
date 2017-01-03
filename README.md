@@ -18,12 +18,6 @@ More specifically, a faster email generator than [EmailGenerator.io](http://emai
 ## To do
 
 ```
-[✓] Links to my github/blog
-[✓] Make it configurable
 [ ] Add more email combos: firstl, lfirst...
-[✓] Clean up extra comma at end of sequence
-[✓] Replace document.getElementById with one call
 [ ] Make the CSS smaller
-[✓] Favicon
-[✓] Automatically select emails after generation
 ```
