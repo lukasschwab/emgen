@@ -6,7 +6,7 @@ document.getElementById("trigger").onclick = function() {
   first = document.getElementById("firstName").value.toLowerCase();
   last = document.getElementById("lastName").value.toLowerCase();
   domain = document.getElementById("customDomain").value.toLowerCase();
-  if (first == "" || last == "" || domain == "") {
+  if (first == "" || last == "") {
     console.log("Insufficient text entered");
     return;
   }
@@ -47,7 +47,13 @@ document.getElementById("configure").onclick = function() {
 
 // Return all domains with which emails should be generated.
 getDomains = function() {
-  domains = [document.getElementById("customDomain").value.toLowerCase()];
+  domains = [];
+
+  custom = document.getElementById("customDomain").value.toLowerCase();
+  if (custom != "") {
+    domains[0] = custom;
+  }
+
   // TODO: replace with iteration over list
   if (document.getElementById("gmail").checked) {
     domains[domains.length] = "gmail.com";
