@@ -16,7 +16,7 @@ document.getElementById("trigger").onclick = function() {
   domains = getDomains();
   emails = [];
   
-  formats = [
+  defaultFormats = [
     "<first>",
     "<last>",
     "<first><last>",
@@ -26,8 +26,8 @@ document.getElementById("trigger").onclick = function() {
     "<last>_<first>",
     "<f><last>",
     "<first><l>"
-  ]
-  // TODO: take arbitrary regex
+  ];
+  formats = defaultFormats.concat(parseAddlFormats());
   // TODO: replace all instances, not just first
   for (var i = 0; i < domains.length; i++) {
     for (var j = 0; j < formats.length; j++) {
@@ -85,10 +85,24 @@ parseAddlDomains = function() {
   var parsed = unparsed.split(",");
   var out = [];
   for (var i = 0; i < parsed.length; i++) {
-    if (parsed[i].length > 0) {
+    if (parsed[i].trim().length > 0) {
       out[out.length] = parsed[i].trim();
     }
   }
   return out;
 }
 
+parseAddlFormats = function() {
+  var unparsed = document.getElementById("addlFormats").value.toLowerCase();
+  if (unparsed.length < 1) {
+    return [];
+  }
+  var parsed = unparsed.split(",");
+  var out = [];
+  for (var i = 0; i < parsed.length; i++) {
+    if (parsed[i].trim().length > 0) {
+      out[out.length] = parsed[i].trim();
+    }
+  }
+  return out;
+}
