@@ -5,6 +5,8 @@ document.getElementById("trigger").onclick = function() {
 
   first = document.getElementById("firstName").value.toLowerCase();
   last = document.getElementById("lastName").value.toLowerCase();
+  finit = first[0];
+  linit = last[0];
   domain = document.getElementById("customDomain").value.toLowerCase();
   if (first == "" || last == "") {
     console.log("Insufficient text entered");
@@ -14,18 +16,27 @@ document.getElementById("trigger").onclick = function() {
   domains = getDomains();
   emails = [];
   
-  // TODO: add regexes; take arbitrary regex
-  // Add all emails to box, then remove last ", ".
+  formats = [
+    "<first>",
+    "<last>",
+    "<first><last>",
+    "<first>.<last>",
+    "<last>.<first>",
+    "<first>_<last>",
+    "<last>_<first>",
+    "<f><last>",
+    "<first><l>"
+  ]
+  // TODO: take arbitrary regex
+  // TODO: replace all instances, not just first
   for (var i = 0; i < domains.length; i++) {
-    out.value += first + "@" + domains[i] + ", ";
-    out.value += last + "@" + domains[i] + ", ";
-    out.value += first + last + "@" + domains[i] + ", ";
-    out.value += first + "." + last + "@" + domains[i] + ", ";
-    out.value += last + "." + first + "@" + domains[i] + ", ";
-    out.value += first + "_" + last + "@" + domains[i] + ", ";
-    out.value += last + "_" + first + "@" + domains[i] + ", ";
-    out.value += first[0] + last + "@" + domains[i] + ", ";
-    out.value += last + first[0] + "@" + domains[i] + ", ";
+    for (var j = 0; j < formats.length; j++) {
+      temp = formats[j].replace("<first>", first);
+      temp = temp.replace("<last>", last);
+      temp = temp.replace("<f>", finit);
+      temp = temp.replace("<l>", linit);
+      out.value += temp + "@" + domains[i] + ", ";
+    }
   }
   out.value = out.value.slice(0, -2);
 
