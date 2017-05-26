@@ -18,7 +18,7 @@ More specifically, a faster email generator than [EmailGenerator.io](http://emai
 ## To do
 
 ```
-[ ] Multiple custom domains
+[✅] Multiple custom domains
 [ ] Add more email combos: firstl, lfirst...
 [ ] Make the CSS smaller
 ```

@@ -54,14 +54,30 @@ getDomains = function() {
   if (custom != "") {
     domains[0] = custom;
   }
-
+  domains = domains.concat(parseAddlDomains());
+  
   var standardDomains = ["gmail", "yahoo", "hotmail", "outlook"];
   for (var i = 0; i < standardDomains.length; i++) {
     if (document.getElementById(standardDomains[i]).checked) {
       domains[domains.length] = standardDomains[i].concat(".com")
     }
   }
-  // TODO: take arbitrary list of additional custom domains
+  
   return domains;
+}
+
+parseAddlDomains = function() {
+  var unparsed = document.getElementById("addlDomains").value.toLowerCase();
+  if (unparsed.length < 1) {
+    return [];
+  }
+  var parsed = unparsed.split(",");
+  var out = [];
+  for (var i = 0; i < parsed.length; i++) {
+    if (parsed[i].length > 0) {
+      out[out.length] = parsed[i].trim();
+    }
+  }
+  return out;
 }
 
