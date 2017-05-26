@@ -13,7 +13,8 @@ document.getElementById("trigger").onclick = function() {
 
   domains = getDomains();
   emails = [];
-
+  
+  // TODO: add regexes; take arbitrary regex
   // Add all emails to box, then remove last ", ".
   for (var i = 0; i < domains.length; i++) {
     out.value += first + "@" + domains[i] + ", ";
@@ -54,18 +55,13 @@ getDomains = function() {
     domains[0] = custom;
   }
 
-  // TODO: replace with iteration over list
-  if (document.getElementById("gmail").checked) {
-    domains[domains.length] = "gmail.com";
+  var standardDomains = ["gmail", "yahoo", "hotmail", "outlook"];
+  for (var i = 0; i < standardDomains.length; i++) {
+    if (document.getElementById(standardDomains[i]).checked) {
+      domains[domains.length] = standardDomains[i].concat(".com")
+    }
   }
-  if (document.getElementById("yahoo").checked) {
-    domains[domains.length] = "yahoo.com";
-  }
-  if (document.getElementById("hotmail").checked) {
-    domains[domains.length] = "hotmail.com";
-  }
-  if (document.getElementById("outlook").checked) {
-    domains[domains.length] = "outlook.com";
-  }
+  // TODO: take arbitrary list of additional custom domains
   return domains;
 }
+
